@@ -966,7 +966,7 @@ const Hero = () => (
         maxWidth: '700px'
       }}>
         Turning complex cloud challenges into scalable, revenue-driving architectures. 
-        From satellite ML inference to multi-agency data platforms—I design solutions 
+        From satellite ML inference to multi-agency data platforms, I design solutions 
         that work at the edge of what's possible.
       </p>
       
