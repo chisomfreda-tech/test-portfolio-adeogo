@@ -1898,7 +1898,7 @@ const ContactSection = () => (
     </p>
     
     <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-      <a href="mailto:xxx@gmail.com" style={{
+      <a href="mailto:adeogoolajide@outlook.com" style={{
         background: '#FF9500',
         color: '#000',
         padding: '16px 32px',
