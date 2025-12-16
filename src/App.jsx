@@ -830,6 +830,33 @@ const testimonials = [
   }
 ];
 
+const publications = [
+  {
+    title: "Accelerating AWS Infrastructure Deployment: A Practical Guide to Console-to-Code",
+    publication: "AWS DevOps Blog",
+    date: "2024",
+    description: "Practical guide for converting AWS Console actions into infrastructure as code, streamlining deployment workflows.",
+    url: "https://aws.amazon.com/blogs/devops/accelerating-aws-infrastructure-deployment-a-practical-guide-to-console-to-code/",
+    tags: ["Infrastructure as Code", "DevOps", "AWS Console"]
+  },
+  {
+    title: "Simplifying Code Documentation with Amazon Q Developer",
+    publication: "AWS DevOps Blog",
+    date: "2024",
+    description: "How to leverage Amazon Q Developer to automate and improve code documentation practices.",
+    url: "https://aws.amazon.com/blogs/devops/simplifying-code-documentation-with-amazon-q-developer/",
+    tags: ["Amazon Q", "Documentation", "Developer Tools"]
+  },
+  {
+    title: "How Voyatek's Child Support Solution Thrive Implements Granular Control of Container Deployments",
+    publication: "AWS Public Sector Blog",
+    date: "2024",
+    description: "Case study on implementing fine-grained container deployment controls for public sector child support systems.",
+    url: "https://aws.amazon.com/blogs/publicsector/how-voyateks-child-support-solution-thrive-implements-granular-control-of-container-deployments/",
+    tags: ["Containers", "Public Sector", "EKS"]
+  }
+];
+
 const skills = {
   "Cloud Platforms": ["AWS", "Azure", "GCP"],
   "AWS Services": ["IoT Greengrass", "SageMaker", "Bedrock", "EKS", "Aurora", "Lambda", "API Gateway", "Direct Connect", "Transit Gateway"],
@@ -849,7 +876,7 @@ const metrics = [
 
 // Components
 const Navigation = ({ activeSection, setActiveSection }) => {
-  const sections = ['Home', 'Journey', 'Projects', 'Skills', 'Testimonials', 'Contact'];
+  const sections = ['Home', 'Journey', 'Projects', 'Publications', 'Skills', 'Testimonials', 'Contact'];
   
   const scrollToSection = (sectionId) => {
     setActiveSection(sectionId.toLowerCase());
@@ -966,7 +993,7 @@ const Hero = () => (
         maxWidth: '700px'
       }}>
         Turning complex cloud challenges into scalable, revenue-driving architectures. 
-        From satellite ML inference to multi-agency data platforms, I design solutions 
+        From satellite ML inference to multi-agency data platforms—I design solutions 
         that work at the edge of what's possible.
       </p>
       
@@ -1026,7 +1053,7 @@ const Hero = () => (
           }}>
           View Projects ↓
         </button>
-        <a href="/Adeogo O. Resume Draft 3 (using inhouse tool) (2).pdf" download style={{
+        <button style={{
           background: 'transparent',
           color: '#fff',
           border: '1px solid rgba(255,255,255,0.3)',
@@ -1035,11 +1062,10 @@ const Hero = () => (
           fontSize: '14px',
           fontWeight: 500,
           borderRadius: '8px',
-          cursor: 'pointer',
-          textDecoration: 'none'
+          cursor: 'pointer'
         }}>
           Download Resume
-        </a>
+        </button>
       </div>
     </div>
   </section>
@@ -1791,6 +1817,125 @@ const SkillsSection = () => (
   </section>
 );
 
+const PublicationsSection = () => (
+  <section id="publications" style={{ padding: '100px 60px', background: 'rgba(255,255,255,0.02)' }}>
+    <h2 style={{
+      fontFamily: "'Syne', sans-serif",
+      fontSize: '48px',
+      fontWeight: 700,
+      color: '#fff',
+      marginBottom: '16px',
+      letterSpacing: '-1px'
+    }}>
+      Publications
+    </h2>
+    <p style={{
+      fontFamily: "'DM Sans', sans-serif",
+      fontSize: '18px',
+      color: 'rgba(255,255,255,0.6)',
+      marginBottom: '60px'
+    }}>
+      Technical articles published on AWS official blogs
+    </p>
+    
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      {publications.map((pub, i) => (
+        <a 
+          key={i}
+          href={pub.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            background: 'rgba(255,255,255,0.03)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '16px',
+            padding: '32px',
+            textDecoration: 'none',
+            transition: 'all 0.3s ease',
+            display: 'block'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'rgba(255,149,0,0.08)';
+            e.currentTarget.style.borderColor = 'rgba(255,149,0,0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
+            <span style={{
+              background: 'rgba(255,149,0,0.15)',
+              color: '#FF9500',
+              padding: '4px 12px',
+              borderRadius: '4px',
+              fontSize: '12px',
+              fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 500
+            }}>
+              {pub.publication}
+            </span>
+            <span style={{
+              color: 'rgba(255,255,255,0.4)',
+              fontSize: '14px',
+              fontFamily: "'DM Sans', sans-serif"
+            }}>
+              {pub.date}
+            </span>
+          </div>
+          
+          <h3 style={{
+            fontFamily: "'Syne', sans-serif",
+            fontSize: '20px',
+            fontWeight: 600,
+            color: '#fff',
+            marginBottom: '12px',
+            lineHeight: 1.4
+          }}>
+            {pub.title}
+          </h3>
+          
+          <p style={{
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: '15px',
+            color: 'rgba(255,255,255,0.6)',
+            lineHeight: 1.6,
+            marginBottom: '16px'
+          }}>
+            {pub.description}
+          </p>
+          
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
+            {pub.tags.map((tag, j) => (
+              <span key={j} style={{
+                background: 'rgba(255,255,255,0.06)',
+                color: 'rgba(255,255,255,0.5)',
+                padding: '4px 10px',
+                borderRadius: '4px',
+                fontSize: '11px',
+                fontFamily: "'DM Sans', sans-serif"
+              }}>
+                {tag}
+              </span>
+            ))}
+            <span style={{
+              marginLeft: 'auto',
+              color: '#FF9500',
+              fontSize: '14px',
+              fontFamily: "'DM Sans', sans-serif",
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              Read article →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+);
+
 const TestimonialsSection = () => (
   <section id="testimonials" style={{ padding: '100px 60px' }}>
     <h2 style={{
@@ -1899,7 +2044,7 @@ const ContactSection = () => (
     </p>
     
     <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
-      <a href="mailto:adeogoolajide@outlook.com" style={{
+      <a href="mailto:xxx@gmail.com" style={{
         background: '#FF9500',
         color: '#000',
         padding: '16px 32px',
@@ -1984,9 +2129,11 @@ export default function AdeogosPortfolio() {
       <Hero />
       <CareerTimeline />
       <ProjectsSection />
+      <PublicationsSection />
       <SkillsSection />
       <TestimonialsSection />
       <ContactSection />
     </div>
   );
 }
+
