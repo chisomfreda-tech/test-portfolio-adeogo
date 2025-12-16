@@ -834,7 +834,7 @@ const publications = [
   {
     title: "Accelerating AWS Infrastructure Deployment: A Practical Guide to Console-to-Code",
     publication: "AWS DevOps Blog",
-    date: "2024",
+    date: "2025",
     description: "Practical guide for converting AWS Console actions into infrastructure as code, streamlining deployment workflows.",
     url: "https://aws.amazon.com/blogs/devops/accelerating-aws-infrastructure-deployment-a-practical-guide-to-console-to-code/",
     tags: ["Infrastructure as Code", "DevOps", "AWS Console"]
@@ -842,7 +842,7 @@ const publications = [
   {
     title: "Simplifying Code Documentation with Amazon Q Developer",
     publication: "AWS DevOps Blog",
-    date: "2024",
+    date: "2025",
     description: "How to leverage Amazon Q Developer to automate and improve code documentation practices.",
     url: "https://aws.amazon.com/blogs/devops/simplifying-code-documentation-with-amazon-q-developer/",
     tags: ["Amazon Q", "Documentation", "Developer Tools"]
@@ -850,7 +850,7 @@ const publications = [
   {
     title: "How Voyatek's Child Support Solution Thrive Implements Granular Control of Container Deployments",
     publication: "AWS Public Sector Blog",
-    date: "2024",
+    date: "2025",
     description: "Case study on implementing fine-grained container deployment controls for public sector child support systems.",
     url: "https://aws.amazon.com/blogs/publicsector/how-voyateks-child-support-solution-thrive-implements-granular-control-of-container-deployments/",
     tags: ["Containers", "Public Sector", "EKS"]
@@ -2136,4 +2136,3 @@ export default function AdeogosPortfolio() {
     </div>
   );
 }
-
