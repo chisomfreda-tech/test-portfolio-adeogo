@@ -868,7 +868,7 @@ const skills = {
 };
 
 const metrics = [
-  { label: "Revenue Influenced", value: "$1.2M+", icon: "💰" },
+  { label: "Revenue Influenced", value: "$11M+", icon: "💰" },
   { label: "Cost Savings Delivered", value: "$180K+", icon: "📉" },
   { label: "AWS Certifications", value: "8", icon: "🏅" },
   { label: "Latency Reduction", value: "65%", icon: "⚡" }
@@ -1270,10 +1270,14 @@ const CareerTimeline = () => {
 const ProjectsSection = () => {
   const [filter, setFilter] = useState({ industry: 'All', competency: 'All', year: 'All' });
   const [selectedProject, setSelectedProject] = useState(null);
+  const [showAll, setShowAll] = useState(false);
   
   const industries = ['All', ...new Set(projectsData.map(p => p.industry))];
   const competencies = ['All', ...new Set(projectsData.flatMap(p => p.competencies))];
   const years = ['All', ...new Set(projectsData.map(p => p.year.toString()))].sort().reverse();
+  
+  // Check if any filter is active
+  const hasActiveFilter = filter.industry !== 'All' || filter.competency !== 'All' || filter.year !== 'All';
   
   const filteredProjects = projectsData.filter(p => {
     if (filter.industry !== 'All' && p.industry !== filter.industry) return false;
@@ -1281,6 +1285,13 @@ const ProjectsSection = () => {
     if (filter.year !== 'All' && p.year.toString() !== filter.year) return false;
     return true;
   });
+  
+  // Show featured only by default, unless showAll is true or a filter is active
+  const displayedProjects = (showAll || hasActiveFilter) 
+    ? filteredProjects 
+    : filteredProjects.filter(p => p.featured);
+  
+  const hiddenCount = filteredProjects.length - displayedProjects.length;
   
   return (
     <section id="projects" style={{ padding: '100px 60px' }}>
@@ -1343,7 +1354,7 @@ const ProjectsSection = () => {
         gridTemplateColumns: 'repeat(auto-fill, minmax(380px, 1fr))',
         gap: '24px'
       }}>
-        {filteredProjects.map(project => (
+        {displayedProjects.map(project => (
           <div
             key={project.id}
             onClick={() => setSelectedProject(project)}
@@ -1460,6 +1471,57 @@ const ProjectsSection = () => {
           </div>
         ))}
       </div>
+      
+      {/* Show All Button */}
+      {hiddenCount > 0 && !showAll && !hasActiveFilter && (
+        <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <button
+            onClick={() => setShowAll(true)}
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(255,149,0,0.5)',
+              color: '#FF9500',
+              padding: '16px 32px',
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '14px',
+              fontWeight: 600,
+              borderRadius: '8px',
+              cursor: 'pointer',
+              transition: 'all 0.3s ease'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = 'rgba(255,149,0,0.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+            }}
+          >
+            Show all {filteredProjects.length} projects ↓
+          </button>
+        </div>
+      )}
+      
+      {/* Collapse Button */}
+      {showAll && !hasActiveFilter && (
+        <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <button
+            onClick={() => setShowAll(false)}
+            style={{
+              background: 'transparent',
+              border: '1px solid rgba(255,255,255,0.2)',
+              color: 'rgba(255,255,255,0.6)',
+              padding: '12px 24px',
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: '13px',
+              fontWeight: 500,
+              borderRadius: '8px',
+              cursor: 'pointer'
+            }}
+          >
+            Show featured only ↑
+          </button>
+        </div>
+      )}
       
       {/* Project Modal */}
       {selectedProject && (
