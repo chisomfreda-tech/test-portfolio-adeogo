@@ -3,93 +3,21 @@ import React, { useState, useEffect } from 'react';
 // Data
 const careerData = [
   {
-    id: 0.5,
-    company: "Virginia State University",
-    role: "B.S. Manufacturing Engineering",
-    location: "Petersburg, VA",
-    period: "2019",
-    type: "Education",
-    bullets: [
-      "GPA: 3.9/4.0 (ABET Accredited)",
-      "Foundation in lean manufacturing, process optimization, and engineering principles"
-    ],
-    industry: "Education",
-    skills: ["Manufacturing", "Lean", "Engineering"]
-  },
-  {
-    id: 1,
-    company: "Cummins",
-    role: "Manufacturing Engineer Intern",
-    location: "Columbus, IN",
-    period: "2019",
-    type: "Internship",
-    bullets: [
-      "Drove 70% reduction in ergonomic risk by redesigning workstations using Lean and DMAIC methodologies",
-      "Achieved 50% improvement in process productivity through streamlined workflows and waste elimination",
-      "Co-designed solutions with operators ensuring smooth adoption of new standards"
-    ],
-    industry: "Manufacturing",
-    skills: ["DMAIC", "Lean", "Process Improvement"]
-  },
-  {
-    id: 2,
-    company: "Honeywell Flour Mill",
-    role: "Mechanical Engineer",
-    location: "Lagos, Nigeria",
-    period: "2020",
+    id: 6,
+    company: "Amazon Web Services",
+    role: "Solutions Architect",
+    location: "Austin, TX",
+    period: "2024 - Present",
     type: "Full-time",
     bullets: [
-      "Coordinated 10+ technicians across departments, improving maintenance alignment",
-      "Improved uptime and process reliability through prioritized preventive maintenance",
-      "Reduced operational surprises by implementing clear communication of planned downtime"
+      "Built Direct Connect solution reducing inter-agency query latency by 65%, enabling $85K incremental revenue",
+      "Implemented Amazon Bedrock multi-agent AI platform decreasing content development time by 2 days",
+      "Designed GCP-to-AWS migration strategy securing $1M annual AWS commitment",
+      "Deployed EKS microservices platform reducing document processing time by 85%",
+      "Optimized Aurora database reducing infrastructure costs by $180K annually"
     ],
-    industry: "Manufacturing",
-    skills: ["Cross-functional Leadership", "Maintenance Planning", "Operations"]
-  },
-  {
-    id: 3,
-    company: "KPMG",
-    role: "IT Business Analyst",
-    location: "Lagos, Nigeria",
-    period: "2020",
-    type: "Full-time",
-    bullets: [
-      "Analyzed enterprise application requirements supporting 100+ end-users across multiple business units",
-      "Achieved 70% issue resolution rate through structured SDLC processes and UAT coordination",
-      "Reduced rework cycles by 45% through early clarification of edge cases and requirements documentation"
-    ],
-    industry: "Consulting",
-    skills: ["SDLC", "Requirements Analysis", "UAT", "Stakeholder Management"]
-  },
-  {
-    id: 4,
-    company: "PwC",
-    role: "Data & Analytics Consultant",
-    location: "Lagos, Nigeria",
-    period: "2021",
-    type: "Full-time",
-    bullets: [
-      "Migrated Azure Data Warehouse converting 12 fragmented sources into star schema using T-SQL and SSIS",
-      "Reduced report inconsistencies from 40% to ~15% across 8 business units",
-      "Created migration documentation reducing onboarding time by 4.5 days"
-    ],
-    industry: "Consulting",
-    skills: ["Azure Synapse", "T-SQL", "SSIS", "Star Schema", "ETL"]
-  },
-  {
-    id: 4.5,
-    company: "Virginia State University",
-    role: "M.S. Computer Science",
-    location: "Petersburg, VA",
-    period: "2023",
-    type: "Education",
-    bullets: [
-      "GPA: 4.0/4.0 (ABET Accredited)",
-      "Focus on cloud computing, machine learning, and distributed systems",
-      "Cyber-Physical Security research: Built prototype platform protecting manufacturing IP through encryption and decentralized design"
-    ],
-    industry: "Education",
-    skills: ["Computer Science", "ML", "Cloud Computing", "Security"]
+    industry: "Cloud/Tech",
+    skills: ["AWS", "Bedrock", "EKS", "Aurora", "Direct Connect", "Transit Gateway"]
   },
   {
     id: 5,
@@ -107,21 +35,93 @@ const careerData = [
     skills: ["AWS IoT Greengrass", "SageMaker", "Docker", "YOLO", "Edge Computing"]
   },
   {
-    id: 6,
-    company: "Amazon Web Services",
-    role: "Solutions Architect",
-    location: "Austin, TX",
-    period: "2024",
+    id: 4.5,
+    company: "Virginia State University",
+    role: "M.S. Computer Science",
+    location: "Petersburg, VA",
+    period: "2023",
+    type: "Education",
+    bullets: [
+      "GPA: 4.0/4.0 (ABET Accredited)",
+      "Focus on cloud computing, machine learning, and distributed systems",
+      "Cyber-Physical Security research: Built prototype platform protecting manufacturing IP through encryption and decentralized design"
+    ],
+    industry: "Education",
+    skills: ["Computer Science", "ML", "Cloud Computing", "Security"]
+  },
+  {
+    id: 4,
+    company: "PwC",
+    role: "Data & Analytics Consultant",
+    location: "Lagos, Nigeria",
+    period: "2021",
     type: "Full-time",
     bullets: [
-      "Built Direct Connect solution reducing inter-agency query latency by 65%, enabling $85K incremental revenue",
-      "Implemented Amazon Bedrock multi-agent AI platform decreasing content development time by 2 days",
-      "Designed GCP-to-AWS migration strategy securing $1M annual AWS commitment",
-      "Deployed EKS microservices platform reducing document processing time by 85%",
-      "Optimized Aurora database reducing infrastructure costs by $180K annually"
+      "Migrated Azure Data Warehouse converting 12 fragmented sources into star schema using T-SQL and SSIS",
+      "Reduced report inconsistencies from 40% to ~15% across 8 business units",
+      "Created migration documentation reducing onboarding time by 4.5 days"
     ],
-    industry: "Cloud/Tech",
-    skills: ["AWS", "Bedrock", "EKS", "Aurora", "Direct Connect", "Transit Gateway"]
+    industry: "Consulting",
+    skills: ["Azure Synapse", "T-SQL", "SSIS", "Star Schema", "ETL"]
+  },
+  {
+    id: 3,
+    company: "KPMG",
+    role: "IT Business Analyst",
+    location: "Lagos, Nigeria",
+    period: "2020",
+    type: "Full-time",
+    bullets: [
+      "Analyzed enterprise application requirements supporting 100+ end-users across multiple business units",
+      "Achieved 70% issue resolution rate through structured SDLC processes and UAT coordination",
+      "Reduced rework cycles by 45% through early clarification of edge cases and requirements documentation"
+    ],
+    industry: "Consulting",
+    skills: ["SDLC", "Requirements Analysis", "UAT", "Stakeholder Management"]
+  },
+  {
+    id: 2,
+    company: "Honeywell Flour Mill",
+    role: "Mechanical Engineer",
+    location: "Lagos, Nigeria",
+    period: "2020",
+    type: "Full-time",
+    bullets: [
+      "Coordinated 10+ technicians across departments, improving maintenance alignment",
+      "Improved uptime and process reliability through prioritized preventive maintenance",
+      "Reduced operational surprises by implementing clear communication of planned downtime"
+    ],
+    industry: "Manufacturing",
+    skills: ["Cross-functional Leadership", "Maintenance Planning", "Operations"]
+  },
+  {
+    id: 1,
+    company: "Cummins",
+    role: "Manufacturing Engineer Intern",
+    location: "Columbus, IN",
+    period: "2019",
+    type: "Internship",
+    bullets: [
+      "Drove 70% reduction in ergonomic risk by redesigning workstations using Lean and DMAIC methodologies",
+      "Achieved 50% improvement in process productivity through streamlined workflows and waste elimination",
+      "Co-designed solutions with operators ensuring smooth adoption of new standards"
+    ],
+    industry: "Manufacturing",
+    skills: ["DMAIC", "Lean", "Process Improvement"]
+  },
+  {
+    id: 0.5,
+    company: "Virginia State University",
+    role: "B.S. Manufacturing Engineering",
+    location: "Petersburg, VA",
+    period: "2019",
+    type: "Education",
+    bullets: [
+      "GPA: 3.9/4.0 (ABET Accredited)",
+      "Foundation in lean manufacturing, process optimization, and engineering principles"
+    ],
+    industry: "Education",
+    skills: ["Manufacturing", "Lean", "Engineering"]
   }
 ];
 
@@ -1093,8 +1093,7 @@ const CareerTimeline = () => {
         marginBottom: '12px',
         maxWidth: '600px'
       }}>
-        From manufacturing floors to satellite systems—a progression built on solving 
-        complex problems across domains.
+        From manufacturing floors to satellite systems—a progression built on solving complex problems across domains.
       </p>
       <p style={{
         fontFamily: "'DM Sans', sans-serif",
@@ -1138,7 +1137,7 @@ const CareerTimeline = () => {
               color: '#FF9500',
               paddingTop: '20px'
             }}>
-              {role.period.split('-')[0].split(' ')[0]}
+              {role.period}
             </div>
             
             {/* Node */}
