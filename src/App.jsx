@@ -1053,7 +1053,7 @@ const Hero = () => (
           }}>
           View Projects ↓
         </button>
-        <button style={{
+        <a href="/Adeogo_Resume.pdf" download style={{
           background: 'transparent',
           color: '#fff',
           border: '1px solid rgba(255,255,255,0.3)',
@@ -1062,10 +1062,12 @@ const Hero = () => (
           fontSize: '14px',
           fontWeight: 500,
           borderRadius: '8px',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          textDecoration: 'none',
+          display: 'inline-block'
         }}>
           Download Resume
-        </button>
+        </a>
       </div>
     </div>
   </section>
