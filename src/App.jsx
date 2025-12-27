@@ -1053,7 +1053,7 @@ const Hero = () => (
           }}>
           View Projects ↓
         </button>
-        <a href="/Adeogo_Resume.pdf" download style={{
+        <a href="/Adeogo_Olajide_Resume_Solutions_Architect.pdf" download style={{
           background: 'transparent',
           color: '#fff',
           border: '1px solid rgba(255,255,255,0.3)',
